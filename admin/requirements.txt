@@ -3,4 +3,4 @@ djangorestframework
 mysqlclient
 django-mysql
 django-cors-headers
-pika
+pika==1.1.0
