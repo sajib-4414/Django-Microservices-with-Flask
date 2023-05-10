@@ -11,6 +11,10 @@ services:
       - .:/app
     depends_on:
       - db
+    networks:
+      - admin-internal-net
+      - admin-shared-net
+
   queue:
     build:
       context: .
@@ -18,6 +22,9 @@ services:
     command: 'python consumer.py'
     depends_on:
       - db
+    networks:
+      - admin-internal-net
+
   db:
     image: mysql:8.0.33
     restart: always
@@ -29,3 +36,10 @@ services:
       - .dbdata:/var/lib/mysql
     ports:
       - "33066:3306"
+    networks:
+      - admin-internal-net
+
+networks:
+  admin-internal-net:
+  admin-shared-net:
+    name: shared-docker-network

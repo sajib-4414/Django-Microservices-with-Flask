@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-=kxtx4*cey6@gt$43%fkafssb^v*0b&&7a)r!dqegbq$xgt)mn
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "shamsul-dev1.rits.uregina.ca"]
+    "admin-backend-1", #name of the flask docker container,
+    "shamsul-dev1.rits.uregina.ca"] #address of the vm i am creating all containers
 
 
 # Application definition
