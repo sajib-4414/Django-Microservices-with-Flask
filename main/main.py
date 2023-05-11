@@ -4,6 +4,7 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import UniqueConstraint
 import requests
+from producer import publish
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root:root@db/main'
@@ -38,9 +39,19 @@ def index():
 @app.route('/api/products-like/<int:id>/like', methods=['POST'])
 def like(id):
     req = requests.get('http://admin-backend-1:8000/api/users')
-    # req = requests.get('https://google.com')
-    return jsonify(req.json())
-    # return "Hello"
+    json = req.json()
+    try:
+        productUser = ProductUser(user_id = json['id'], product_id=id)
+        db.session.add(productUser)
+        db.session.commit()
+
+        publish('product_liked',id)
+
+    except:
+        abort(400,"You already liked this project")
+    return jsonify({
+        'message':'success'
+    })
 
 
 
