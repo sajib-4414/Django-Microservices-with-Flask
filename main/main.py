@@ -36,8 +36,9 @@ def index():
     return jsonify(Product.query.all())
 
 
-@app.route('/api/products-like/<int:id>/like', methods=['POST'])
+@app.route('/api/products/<int:id>/like', methods=['POST'])
 def like(id):
+    print("hello")
     req = requests.get('http://admin-backend-1:8000/api/users')
     json = req.json()
     try:

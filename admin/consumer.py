@@ -6,6 +6,7 @@ import pika
 
 from products.models import Product
 
+# this is rabbitmq ampq url
 params = pika.URLParameters('amqps://actfwcmb:IZXnikOdMWIZEXGB19jxYJ22Q0etSMVR@beaver.rmq.cloudamqp.com/actfwcmb')
 
 connection  = pika.BlockingConnection(params)
