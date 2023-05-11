@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "admin-backend-1", #name of the flask docker container,
-    "shamsul-dev1.rits.uregina.ca"] #address of the vm i am creating all containers
+    "shamsul-dev1.rits.uregina.ca",
+    "142.3.200.35"] #address of the vm i am creating all containers
 
 
 # Application definition

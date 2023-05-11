@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: client_frontend
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
+#    networks:
+#      - react-internal-net
+#      - admin-shared-net
+#
+#networks:
+#  react-internal-net:
+#  admin-shared-net:
+#    external: true #needs to be created by other file
+#    name: shared-docker-network

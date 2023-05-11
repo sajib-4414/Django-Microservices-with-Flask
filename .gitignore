@@ -2,3 +2,6 @@
 env/
 admin/.dbdata
 main/.dbdata
+node_modules/
+react-crud/package-lock.json
+react-crud/.package.swp
