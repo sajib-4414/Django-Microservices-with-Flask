@@ -1,4 +1,4 @@
-# Django-Microservices-with-Flask
+# Django-Flask Microservices with RabbitMQ integration
 #### Contact Django Microservice from Flask
 To being able to contact another container (created with another docker compose file) with http url, you MUST need a shared network.
 read here: https://accesto.com/blog/docker-networks-explained-part-2/ 
@@ -17,5 +17,12 @@ In this example, we are making an HTTP GET request to http://service2:8080/ from
 Make sure that the port number you use in the URL matches the port number on which service2 is listening. Also, make sure that the container name you use in the URL matches the name of the container as defined in the Docker Compose file.
 #### App flow
 In the home page, you see product list from the admin app product list,
-but in the admin/products page you see products from the main app product list. in the homepage when you like a product, the like is sent to the django admin, the like is increased.
+- This project has 3 microservices, one is django, one is Flask another one is React.
+- Django and Flask has their Own mysql database. However, they are indentical. When you like/create a product it creates an event that is 
+ published via RabbitMQ. Django App consumes it and updates their own table.
+- React app sends request to Flask, but flask eventually just publishes events. 
+- Both the Flask and Django has code to publish events inside
+- All the apps are on docker images
 
+Initial guideline followed from this tutorial: https://www.youtube.com/watch?v=0iB5IPoTDts&pp=ygUUZGphbmdvIG1pY3Jvc2VydmljZXM%3D
+  
