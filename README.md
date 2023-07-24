@@ -1,4 +1,5 @@
-# Django-Flask Microservices with RabbitMQ integration
+# Social network Full stack application with Django-Flask-React Microservices
+### Uses RabbitMQ as Event bus
 #### Contact Django Microservice from Flask
 To being able to contact another container (created with another docker compose file) with http url, you MUST need a shared network.
 read here: https://accesto.com/blog/docker-networks-explained-part-2/ 
